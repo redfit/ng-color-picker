@@ -20,7 +20,7 @@ angular.module('ngColorPicker', [])
             customizedColors: '=colors'
         },
         restrict: 'AE',
-        templateUrl: 'color-picker.html',
+        template: '<ul><li ng-repeat="color in colors" ng-class="{selected: (color===selected)}" ng-click="pick(color)" ng-style="{\'background-color\':color};"></li></ul>',
         link: function (scope, element, attr) {
             scope.colors = scope.customizedColors || defaultColors;
             scope.selected = scope.selected || scope.colors[0];
